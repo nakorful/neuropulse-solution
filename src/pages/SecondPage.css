@@ -1,0 +1,35 @@
+.second-page {
+    padding: 20px;
+}
+
+/*form {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    gap: 20px;*/
+/*}*/
+
+.pre-medical-condition {
+    grid-column: span 2;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Apply a linear gradient background */
+.page-background {
+    background: linear-gradient(135deg, #7AA5AB, #ffffff);
+    min-height: 100vh; /* Ensure it covers the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Optional: Ensure text and other content are readable on the gradient */
+h1, p, footer {
+    color: #333; /* Choose a contrasting color for text */
+}

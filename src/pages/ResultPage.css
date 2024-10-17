@@ -1,0 +1,47 @@
+.first-page {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.start-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+footer a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.circle-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    border-radius: 50%; /* Makes the image circular */
+    border: 2px solid #ddd; /* Optional: Add a subtle border to the circle */
+}
+
+/* Apply a linear gradient background */
+.page-background {
+    background: linear-gradient(135deg, #7AA5AB, #ffffff);
+    min-height: 100vh; /* Ensure it covers the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Optional: Ensure text and other content are readable on the gradient */
+h1, p, footer {
+    color: #333; /* Choose a contrasting color for text */
+}
