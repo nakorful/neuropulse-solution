@@ -31,6 +31,7 @@ const calculateSelectedImportances = (conditions: Record<string, string>) => {
 };
 
 const ResultPage = () => {
+    // nothing important over here
     const location = useLocation();
     const { preMedicalCondition, lifestyle } = location.state || {};
 
