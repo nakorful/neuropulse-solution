@@ -45,3 +45,14 @@ footer a {
 h1, p, footer {
     color: #333; /* Choose a contrasting color for text */
 }
+
+.logo-container {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+}
+
+.logo-image {
+    width: 120px; /* Adjust size as needed */
+    height: auto;
+}

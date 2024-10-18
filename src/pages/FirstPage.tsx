@@ -5,8 +5,15 @@ import './FirstPage.css'; // For custom styles
 const FirstPage = () => {
     // @ts-ignore
     return (
-        <Container className="page-background">
-            {/* Top-left positioning */}
+        <Container className="page-background position-relative">
+            {/* Top-left positioned logo */}
+            <div className="logo-container">
+                <Image
+                    src="/NEUR.png" // Replace with the actual file name and path
+                    alt="NeuroPulse Logo"
+                    className="logo-image"
+                />
+            </div>
             <Row className="h3 top-0 start-0 m-3">NeuroPulse Solution</Row>
 
             <Container className="text-center mt-5">

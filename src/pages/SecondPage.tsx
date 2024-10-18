@@ -97,6 +97,8 @@ const SecondPage = () => {
             prob6Months: probability_6_months.toFixed(2),
             prob1Year: probability_1_year.toFixed(2)
         });
+
+        return probability_6_months.toFixed(2);
     };
 
 
@@ -115,7 +117,10 @@ const SecondPage = () => {
         console.log('handling submit. pre medical condition:', preMedicalCondition, 'lifestyle:', lifestyle)
 
         if (preMedicalCondition && lifestyle) {  // Make sure they are defined
-            navigate('/results', { state: { preMedicalCondition, lifestyle } });
+            const prob6Months = calculateProbability();
+            console.log('percentage:', prob6Months)
+
+            navigate('/results', { state: { preMedicalCondition, lifestyle, percentage: prob6Months } });
         } else {
             console.log('preMedicalCondition or lifestyle is undefined');
         }

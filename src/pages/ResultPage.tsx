@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Button, Container, Row, Col, Image } from 'react-bootstrap';
-import './FirstPage.css'; // For custom styles
+import './ResultPage.css'; // For custom styles
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import {useLocation} from "react-router-dom";
@@ -33,7 +33,7 @@ const calculateSelectedImportances = (conditions: Record<string, string>) => {
 const ResultPage = () => {
     // nothing important over here
     const location = useLocation();
-    const { preMedicalCondition, lifestyle } = location.state || {};
+    const { preMedicalCondition, lifestyle, percentage } = location.state || {};
 
     // Combine all conditions
     const conditions = {
@@ -57,8 +57,16 @@ const ResultPage = () => {
             {
                 label: 'Importance Value',
                 data: Object.values(selectedImportances),
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                // backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                backgroundColor: function (context: any) {
+                    const value = context.raw;  // Get the data point value
+                    return value >= 0.25 ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)'; // Change color based on condition
+                },
+                // borderColor: 'rgba(54, 162, 235, 1)',
+                borderColor: function (context: any) {
+                    const value = context.raw;  // Get the data point value
+                    return value >= 0.25 ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)'; // Change color based on condition
+                },
                 borderWidth: 1
             }
         ]
@@ -84,12 +92,19 @@ const ResultPage = () => {
 
     // @ts-ignore
     return (
-        <Container className="page-background">
+        <Container className="page-background position-relative">
+            {/* Top-left positioned logo */}
+            <div className="logo-container">
+                <Image
+                    src="/NEUR.png" // Replace with the actual file name and path
+                    alt="NeuroPulse Logo"
+                    className="logo-image"
+                />
+            </div>
             {/* Top-left positioning */}
             <Row className="h3 top-0 start-0 m-3">NeuroPulse Solution</Row>
 
             <Container className="text-center mt-5">
-                <p className="row justify-content-center">Your loved one might be prone</p>
                 {/* Add your rounded image */}
                 {/*@ts-ignore*/}
                 <div className="row align-items-center justify-content-between">
@@ -101,11 +116,14 @@ const ResultPage = () => {
                         />
                     </Col>
                     <Col md={6}>
-                        <p>Are you a family member or caregiver?</p>
+                        <p></p>
                     </Col>
                 </div>
 
-                <div>
+                <div className="mt-5">
+                    {percentage}% at risk of developing stage 1 Alzheimer disease within 6 months
+                </div>
+                <div className="mt-5">
                     <Bar data={data} options={options}/>
                 </div>
 
