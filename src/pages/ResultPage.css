@@ -56,3 +56,15 @@ h1, p, footer {
     width: 120px; /* Adjust size as needed */
     height: auto;
 }
+
+.result-percentage {
+    font-size: 9rem;
+    color: ghostwhite;
+    font-weight: bolder;
+    margin-right: 12px;
+}
+
+.within-percentage {
+    font-weight: bold;
+    font-size: 1.2rem;
+}

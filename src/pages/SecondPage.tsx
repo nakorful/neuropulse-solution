@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import {Form, Button, Container, Row, Col, Image} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './SecondPage.css'; // For custom styles
 
@@ -88,8 +88,8 @@ const SecondPage = () => {
             probability_6_months = Math.random() * (60 - 40) + 40;
             probability_1_year = Math.random() * (65 - 45) + 45;
         } else {
-            probability_6_months = Math.random() * (50 - 30) + 30;
-            probability_1_year = Math.random() * (55 - 35) + 35;
+            probability_6_months = 0;
+            probability_1_year = 0;
         }
 
         // Update the result state
@@ -127,7 +127,15 @@ const SecondPage = () => {
     };
 
     return (
-        <Container className="page-background">
+        <Container className="page-background position-relative">
+            {/* Top-left positioned logo */}
+            <div className="logo-container">
+                <Image
+                    src="/NEUR.png" // Replace with the actual file name and path
+                    alt="NeuroPulse Logo"
+                    className="logo-image"
+                />
+            </div>
             {/* Top-left positioning */}
             <Row className="h3 top-0 start-0 m-3">NeuroPulse Solution</Row>
 
@@ -155,6 +163,9 @@ const SecondPage = () => {
                                     <option value="">Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
+                                    <option value="Trans">Transgender</option>
+                                    <option value="Non-binary">Non-binary</option>
+                                    <option value="PNTS">Prefer not to share</option>
                                 </Form.Select>
                             </Form.Group>
                         </Col>
@@ -185,10 +196,12 @@ const SecondPage = () => {
                                 >
                                     <option value="">Select Race</option>
                                     <option value="White">White</option>
-                                    <option value="Black">Black</option>
+                                    <option value="American-Indian">American Indian or Alaska Native</option>
                                     <option value="Asian">Asian</option>
-                                    <option value="Hispanic">Hispanic</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Black">Black or African American</option>
+                                    <option value="Hispanic">Hispanic or Latino</option>
+                                    <option value="Hawaiian">Native Hawaiian or Other Pacific</option>
+                                    <option value="Islander">Islander</option>
                                 </Form.Select>
                             </Form.Group>
                         </Col>
@@ -490,7 +503,7 @@ const SecondPage = () => {
                                             type="radio"
                                             label="No"
                                             value="No"
-                                            checked={injury.headInjury === 'No'}
+                                            checked={injury.earInjury === 'No'}
                                             onChange={(e) =>
                                                 setInjury({
                                                     ...injury,

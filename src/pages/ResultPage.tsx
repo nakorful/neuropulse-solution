@@ -116,12 +116,12 @@ const ResultPage = () => {
                         />
                     </Col>
                     <Col md={6}>
-                        <p></p>
+                        <p className={"result-percentage"}>{percentage}%</p>
                     </Col>
                 </div>
 
                 <div className="mt-5">
-                    {percentage}% at risk of developing stage 1 Alzheimer disease within 6 months
+                    {percentage}% at risk of developing <span className={"within-percentage"}>stage 1</span> Alzheimer disease within <span className={"within-percentage"}>6 months</span>
                 </div>
                 <div className="mt-5">
                     <Bar data={data} options={options}/>
