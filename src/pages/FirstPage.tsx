@@ -37,7 +37,7 @@ const FirstPage = () => {
                     Start Assessment
                 </Button>
                 <p className="mt-3">Assess your loved one today!</p>
-                <p className="mt-3">Your loved one might be having Alzheimer's Disease</p>
+                <p className="mt-3">Your loved one might be having Alzheimer's Disease and related dementia</p>
 
                 <footer className="mt-5">
                     <a href="#">Learn</a> | <a href="#">Help</a> | <a href="#">Contact Us</a> | <a href="#">About Us</a>
