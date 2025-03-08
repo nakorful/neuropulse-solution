@@ -30,6 +30,15 @@ const calculateSelectedImportances = (conditions: Record<string, string>) => {
     return selectedImportances;
 };
 
+const getRiskText = (percentage: number) => {
+    if (percentage >= 0 && percentage <= 50) {
+        return `${percentage}% at risk of developing stage 1 Alzheimer’s disease and related dementia within 1 year, you need to start planning towards a healthy lifestyle, sleeping well, and staying hydrated!`;
+    } else if (percentage >= 51 && percentage <= 75) {
+        return `${percentage}% of stage 1 Alzheimer disease within 6 months, please see a medical professional as soon as you can! Be safe 🤍`;
+    }
+    return `${percentage}% at risk of developing <span className={"within-percentage"}>stage 1</span> Alzheimer disease and related dementia within <span className={"within-percentage"}>6 months</span>`;
+};
+
 const ResultPage = () => {
     // nothing important over here
     const location = useLocation();
@@ -57,12 +66,10 @@ const ResultPage = () => {
             {
                 label: 'Importance Value',
                 data: Object.values(selectedImportances),
-                // backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 backgroundColor: function (context: any) {
                     const value = context.raw;  // Get the data point value
                     return value >= 0.25 ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)'; // Change color based on condition
                 },
-                // borderColor: 'rgba(54, 162, 235, 1)',
                 borderColor: function (context: any) {
                     const value = context.raw;  // Get the data point value
                     return value >= 0.25 ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)'; // Change color based on condition
@@ -120,9 +127,8 @@ const ResultPage = () => {
                     </Col>
                 </div>
 
-                <div className="mt-5">
-                    {percentage}% at risk of developing <span className={"within-percentage"}>stage 1</span> Alzheimer disease and related dementia within <span className={"within-percentage"}>6 months</span>
-                </div>
+                <div className="mt-5" dangerouslySetInnerHTML={{ __html: getRiskText(percentage) }} />
+
                 <div className="mt-5">
                     <Bar data={data} options={options}/>
                 </div>

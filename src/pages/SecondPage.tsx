@@ -39,7 +39,7 @@ const SecondPage = () => {
     interface Result {
         prob6Months: string | null;
         prob1Year: string | null;
-    }
+    };
 
 
     const [result, setResult] = useState<Result>({
@@ -105,7 +105,7 @@ const SecondPage = () => {
     useEffect(() => {
         console.log(preMedicalCondition)
         console.log(lifestyle)
-    }, [preMedicalCondition, lifestyle])
+    }, [preMedicalCondition, lifestyle]);
 
 
     const navigate = useNavigate();
