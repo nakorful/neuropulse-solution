@@ -32,16 +32,17 @@ const calculateSelectedImportances = (conditions: Record<string, string>) => {
 
 const getRiskText = (percentage: number) => {
     if (percentage >= 0 && percentage <= 15) {
-        return `${percentage}% at risk of developing <span className={"within-percentage"}>stage 1</span> Alzheimer’s disease and related dementia
-        within <span className={"within-percentage"}>1 year</span>, you need to start planning towards a healthy lifestyle, sleeping well, and staying hydrated!`;
+        return `${percentage}% at risk of developing <span className="within-percentage">stage 1</span> Alzheimer’s disease and related dementia
+        within <span className="within-percentage">1 year</span>, you need to start planning towards a healthy lifestyle, sleeping well, and staying hydrated!`;
     } else if (percentage >= 16 && percentage <= 50) {
-        return `${percentage}% at risk of developing <span className={"within-percentage"}>stage 1</span> Alzheimer’s disease and related dementia
-        within <span className={"within-percentage"}>1 year</span>, please start to maintain a healthy lifestyle, sleep well,  and stay hydrated!”`;
+        return `${percentage}% at risk of developing <span className="within-percentage">stage 1</span> Alzheimer’s disease and related dementia
+        within <span className="within-percentage">1 year</span>, please start to maintain a healthy lifestyle, sleep well,  and stay hydrated!”`;
     } else if (percentage >= 51 && percentage <= 75) {
-        return `${percentage}% of <span className={"within-percentage"}>stage 1</span> Alzheimer disease within
-        <span className={"within-percentage"}>6 months</span>, please see a medical professional as soon as you can! Be safe 🤍`;
+        return `${percentage}% of <span className="within-percentage">stage 1</span> Alzheimer disease within
+        <span className="within-percentage">6 months</span>, please see a medical professional as soon as you can! Be safe 🤍`;
     }
-    return `${percentage}% at risk of developing <span className={"within-percentage"}>stage 1</span> Alzheimer disease and related dementia within <span className={"within-percentage"}>6 months</span>`;
+    return `${percentage}% at risk of developing <span className="within-percentage">stage 1</span> Alzheimer disease and related dementia
+    within <span className="within-percentage">6 months</span>`;
 };
 
 const ResultPage = () => {
